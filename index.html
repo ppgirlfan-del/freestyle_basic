@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>自由式基礎班 12 週改版｜實體課 + 學員 GPT</title>
+  <meta name="description" content="自由式基礎班 12 週改版：實體課 + 學員 GPT。3 個月建立不憋氣、不靠浮板的自由式換氣系統。12 堂課（8×90 + 4×60），每堂含泳姿攝影回饋與課堂筆記。" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a2e;
+      --text:#eaf0ff;
+      --muted:#b7c3e6;
+      --line:rgba(255,255,255,.14);
+      --accent:#ff3b3b;
+      --accent2:#4dd7ff;
+      --ok:#39d98a;
+      --warn:#ffcc66;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(77,215,255,.18), transparent 55%),
+                  radial-gradient(1000px 700px at 90% 0%, rgba(255,59,59,.16), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:10px 0;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      font-weight:800; letter-spacing:.3px;
+    }
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(255,59,59,.95), rgba(77,215,255,.9));
+      box-shadow: 0 10px 25px rgba(255,59,59,.15);
+    }
+    .nav a{opacity:.9; text-decoration:none}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.04);
+      font-size:14px;
+    }
+    .hero{
+      margin-top:14px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background: rgba(16,26,46,.86);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      backdrop-filter: blur(8px);
+    }
+    .kicker{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom:10px;
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-size:13px; color:var(--muted);
+    }
+    h1{margin:6px 0 10px; font-size:34px; line-height:1.25}
+    @media (max-width:480px){ h1{font-size:28px} }
+    .sub{color:var(--muted); margin:0 0 16px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      font-weight:700;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(255,59,59,.98), rgba(255,59,59,.72));
+      border-color: rgba(255,59,59,.45);
+      box-shadow: 0 18px 45px rgba(255,59,59,.18);
+    }
+    .btn.secondary{
+      background: linear-gradient(135deg, rgba(77,215,255,.95), rgba(77,215,255,.55));
+      border-color: rgba(77,215,255,.35);
+      color:#02121c;
+    }
+    .fine{font-size:13px; color:var(--muted)}
+    .grid{
+      display:grid; grid-template-columns: repeat(12, 1fr);
+      gap:14px; margin-top:16px;
+    }
+    .col6{grid-column: span 6}
+    .col4{grid-column: span 4}
+    .col8{grid-column: span 8}
+    .col12{grid-column: span 12}
+    @media (max-width:900px){
+      .col6,.col4,.col8{grid-column: span 12}
+    }
+    h2{margin:0 0 10px; font-size:22px}
+    h3{margin:0 0 8px; font-size:18px}
+    ul{margin:10px 0 0 20px; padding:0}
+    li{margin:6px 0}
+    .muted{color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin:18px 0}
+    .tableWrap{overflow:auto; border-radius:14px; border:1px solid var(--line)}
+    table{width:100%; border-collapse:collapse; min-width:720px; background: rgba(255,255,255,.02)}
+    th,td{padding:12px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+    th{font-size:13px; color:var(--muted); background: rgba(255,255,255,.03)}
+    tr:last-child td{border-bottom:none}
+    .priceHead{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      margin-bottom:12px;
+    }
+    .toggle{
+      display:flex; gap:6px; padding:6px; border:1px solid var(--line);
+      border-radius: 999px; background: rgba(255,255,255,.03);
+    }
+    .toggle button{
+      cursor:pointer; border:none; background:transparent; color:var(--muted);
+      padding:8px 12px; border-radius:999px; font-weight:800;
+    }
+    .toggle button.active{
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .pricing{
+      display:grid; grid-template-columns: repeat(12, 1fr); gap:14px;
+    }
+    .plan{grid-column: span 4; position:relative}
+    @media (max-width:900px){ .plan{grid-column: span 12} }
+    .plan .badge{
+      position:absolute; top:14px; right:14px;
+      background: rgba(255,255,255,.08);
+      border:1px solid var(--line);
+      border-radius:999px; padding:6px 10px; font-size:12px; color:var(--muted);
+    }
+    .price{
+      font-size:32px; font-weight:900; letter-spacing:.2px;
+      margin:8px 0 8px;
+    }
+    .unit{font-size:14px; color:var(--muted); font-weight:700}
+    .hl{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px
+    }
+    .pill{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); background: rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+    .pill.ok{border-color: rgba(57,217,138,.35); color: rgba(57,217,138,.95); background: rgba(57,217,138,.10)}
+    .pill.warn{border-color: rgba(255,204,102,.35); color: rgba(255,204,102,.95); background: rgba(255,204,102,.10)}
+    .noteBox{
+      border:1px dashed rgba(255,255,255,.22);
+      border-radius:14px; padding:14px;
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .footer{
+      margin-top:18px; padding:16px 0 30px; color:var(--muted);
+      font-size:13px;
+    }
+    .anchor{scroll-margin-top:14px}
+
+    /* Fix: dropdown option text should be dark for readability on the native white menu */
+    #plan option{ color:#0b1220; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; color:var(--muted); font-weight:800;">自由式基礎班｜12 週改版</div>
+          <div style="font-size:14px; font-weight:900;">實體課 + 學員 GPT</div>
+        </div>
+      </div>
+      <div class="navlinks">
+        <a class="chip" href="#about">課程亮點</a>
+        <a class="chip" href="#curriculum">課程流程</a>
+        <a class="chip" href="#gpt">學員 GPT</a>
+        <a class="chip" href="#pricing">方案價格</a>
+        <a class="chip" href="#signup">立即報名</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <div class="kicker">
+          <span class="tag">12 週｜12 堂（8×90 + 4×60）</span>
+          <span class="tag">每堂含泳姿攝影回饋 + 課堂筆記</span>
+          <span class="tag">不拿浮板踢水｜不憋氣</span>
+        </div>
+
+        <h1>自由式基礎班 12 週改版AI助攻🔥<br/>讓「自由式技能」變成你的DNA</h1>
+        <p class="sub">
+          3 個月建立「一輩子能帶著走」的自由式觀念與技能：從觀念 → 動作 → 複習。
+          課後由 <b>學員 GPT</b> 持續陪你，複習知識、穩固觀念，把重點整理清楚、練習有信心、進度更可掌握。
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#pricing">選擇教練方案 →</a>
+          <a class="btn secondary" href="#signup">立刻報名</a>
+          <a class="btn" href="#curriculum">看 12 堂流程</a>
+        </div>
+
+        <p class="fine" style="margin-top:12px;">
+          首期新模式提供「首開價」名額（限首期／限前 N 名／限倒數日期），名額滿即回到常態價格。
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 id="about" class="anchor">這堂課適合誰</h2>
+        <ul>
+          <li>有基本水感、會蛙式，但不會自由式</li>
+          <li>會自由式但換氣不順、嗆水、換氣就亂</li>
+          <li>能游 25–400m 但很累、效率差，想建立更省力的動作基礎</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h3>你會得到的成果</h3>
+        <ul>
+          <li><b>零基礎</b>：能自由式換氣游 <b>25 公尺</b></li>
+          <li><b>有水感/會蛙式但換氣不佳</b>：改善至可連續游 <b>100 公尺</b></li>
+          <li><b>400 公尺以上但緩慢</b>：提升效率，目標 <b>100m 3’00 內</b>（依起點調整）</li>
+        </ul>
+
+        <div class="hl">
+          <span class="pill ok">成人友善教學語言</span>
+          <span class="pill ok">分解練習 → 串聯整合</span>
+          <span class="pill warn">避免憋氣代償</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="grid">
+      <div class="card col4">
+        <h3>每堂固定回饋</h3>
+        <ul class="muted">
+          <li>泳姿攝影與回饋（清楚看到進步）</li>
+          <li>課堂筆記（回家照著練）</li>
+          <li>本週 3 次練習菜單（20–30 分版本）</li>
+        </ul>
+      </div>
+      <div class="card col4">
+        <h3>12 週節奏更穩</h3>
+        <ul class="muted">
+          <li>10 堂主課程（技術建立與整合）</li>
+          <li>2堂 實際團練練習：把技術帶進訓練情境</li>
+          <li>你可以在學員 GPT 查詢團練前後預習、複習重點</li>
+        </ul>
+      </div>
+      <div class="card col4">
+        <h3>銜接式學習系統</h3>
+        <ul class="muted">
+          <li>自由式：先修／基礎／進階／一對一</li>
+          <li>練習：200／400／1000／長距離團練</li>
+          <li>適應：泳池安全自救／深水／開放水域觀念</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section class="card" id="curriculum" class="anchor" style="margin-top:16px;">
+      <h2 class="anchor">12 堂課流程（8×90 + 4×60）</h2>
+      <p class="muted" style="margin-top:4px;">
+        教學模板一致、全台可複製；差別在教練回饋的細緻度，以及學員 GPT 的使用範圍。
+      </p>
+
+      <div class="tableWrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:80px;">堂次</th>
+              <th>內容重點</th>
+              <th style="width:120px;">時間</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>L1</td><td>課程介紹／觀念溝通／踢水動作練習</td><td>90 分鐘</td></tr>
+            <tr><td>L2</td><td>踢水動作練習／側身踢</td><td>90 分</td></tr>
+            <tr><td>L3</td><td>側身踢／划手動作／六腳一手</td><td>90 分鐘</td></tr>
+            <tr><td>L4</td><td>划手動作／六腳一手／單臂划手</td><td>90 分鐘</td></tr>
+            <tr><td>L5</td><td>划手動作／單臂划手／水下換手</td><td>90 分鐘</td></tr>
+            <tr><td>L6</td><td>踢水穩固／換氣基本動作／單臂划手 + 換氣</td><td>90 分鐘</td></tr>
+            <tr><td>L7</td><td>換氣基本動作／水下換手 + 換氣</td><td>90 分鐘</td></tr>
+            <tr><td>L8</td><td>開放水域基本觀念與綜合複習</td><td>90 分鐘</td></tr>
+            <tr><td>L9</td><td>認識課表項&綜合練習（一）</td><td>60 分鐘</td></tr>
+            <tr><td>L10</td><td>認識課表項&綜合練習（二）</td><td>60 分鐘</td></tr>
+            <tr><td>L11</td><td>團練實作參與（一）</td><td>60 分鐘</td></tr>
+            <tr><td>L12</td><td>團練實作參與（二）</td><td>60 分鐘</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="noteBox">
+        <b style="color:var(--text);">後 4 堂（60 分鐘）怎麼用？</b><br/>
+        L9–L10 會帶你在綜合練習裡理解課表科目的串起來；L11–L12 則進入團練實作，把學習成果搬到真實團練情境，為自主訓練或未來加入團練做準備。
+        學員 GPT 會依你輸入的「最近堂次＋今天最不順的地方」，幫你整理「複習菜單」與「本週 3 次練習」。
+      </div>
+    </section>
+
+    <!-- GPT -->
+    <section class="grid" id="gpt">
+      <div class="card col8">
+        <h2 class="anchor">學員 GPT：你的課後教練助理</h2>
+        <p class="muted">
+          這不是泛用聊天機器人，而是「依 L1–L12 教學模板」設計的學習學習工具。
+          幫你把課後最容易失憶的地方找回來：複習、作業、瓶頸排除、團練前後銜接。
+        </p>
+        <div class="grid" style="margin-top:8px;">
+          <div class="col6">
+            <h3>你會用到的 4 件事</h3>
+            <ul class="muted">
+              <li><b>課後重點整理</b>：把教練重點整理成你看得懂、做得到的版本</li>
+              <li><b>作業與提醒</b>：本週 3 次、每次 20–30 分練習菜單</li>
+              <li><b>卡關排除</b>：換氣一沉／一亂／一下就累 → 給你優先修正順序</li>
+              <li><b>團練前後複習</b>：缺課／忙碌也能把進度接回來</li>
+            </ul>
+          </div>
+          <div class="col6">
+            <h3>安全與邊界</h3>
+            <ul class="muted">
+              <li>若出現強烈恐懼、頻繁嗆水、疼痛不適：會提醒你先跟教練確認，並依安全流程處理</li>
+              <li>學員 GPT 主要負責協助你複習與安排練習，不取代教練現場判斷</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card col4">
+        <h3>使用方式（超簡單）</h3>
+        <ol class="muted" style="margin:10px 0 0 20px; padding:0;">
+          <li>上完課，輸入「L__ + 今天最不順的地方」</li>
+          <li>拿到「本堂 3 重點 + 1 個修正點」</li>
+          <li>照著「本週 3 次練習菜單」去做</li>
+        </ol>
+        <div class="divider"></div>
+        <p class="muted" style="margin:0;">
+          想更快？選擇高階方案，會有更細的回饋與 GPT 進階功能（見下方方案）。
+        </p>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="card" id="pricing">
+      <div class="priceHead">
+        <div>
+          <h2 class="anchor">選擇教練方案</h2>
+          <p class="muted" style="margin:6px 0 0;">
+            三方案教學模板一致（L1–L12）。差別在「回饋細緻度」與「學員 GPT 使用範圍」。
+          </p>
+        </div>
+
+        <div class="toggle" role="tablist" aria-label="價格切換">
+          <button id="btnLaunch" class="active" type="button" aria-selected="true">首開價</button>
+          <button id="btnRegular" type="button" aria-selected="false">常態價格</button>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <!-- Plan A -->
+        <div class="card plan">
+          <div class="badge">入門推薦</div>
+          <h3>體系教練版</h3>
+          <div class="price">
+            <span data-price="launch">NT$ 10,800</span>
+            <span data-price="regular" style="display:none;">NT$ 11,800</span>
+            <span class="unit">／12 週・12 堂</span>
+          </div>
+          <div class="hl">
+            <span class="pill ok">每堂攝影回饋</span>
+            <span class="pill ok">課堂筆記</span>
+            <span class="pill">學員 GPT｜12 週標準版</span>
+          </div>
+          <ul class="muted">
+            <li><b>台北場</b>｜地點：南港成德國中運動中心泳池｜子賢教練</li>
+            <li><b>桃園場</b>｜地點：元智大學｜巧侑教練</li>
+            <li>課後複習＋作業菜單＋常見問題快速排除</li>
+          </ul>
+          <a class="btn primary" href="#signup" style="width:100%; margin-top:10px;">選這個方案報名</a>
+        </div>
+
+        <!-- Plan B -->
+        <div class="card plan">
+          <div class="badge">回饋加強</div>
+          <h3>劉熹教練版</h3>
+          <div class="price">
+            <span data-price="launch">NT$ 12,800</span>
+            <span data-price="regular" style="display:none;">NT$ 13,800</span>
+            <span class="unit">／12 週・12 堂</span>
+          </div>
+          <div class="hl">
+            <span class="pill ok">每堂攝影回饋</span>
+            <span class="pill ok">課堂筆記</span>
+            <span class="pill warn">加 1 次影片檢視</span>
+            <span class="pill">學員 GPT｜12 週進階版</span>
+          </div>
+          <ul class="muted">
+            <li>影片檢視 1 次（30–40 分）</li>
+            <li>含檢視流程＋後續提醒（先改哪個最有效）</li>
+          </ul>
+          <a class="btn primary" href="#signup" style="width:100%; margin-top:10px;">選這個方案報名</a>
+        </div>
+
+        <!-- Plan C -->
+        <div class="card plan">
+          <div class="badge">進階加值</div>
+          <h3>燿宇教練版</h3>
+          <div class="price">
+            <span data-price="launch">NT$ 15,800</span>
+            <span data-price="regular" style="display:none;">NT$ 17,800</span>
+            <span class="unit">／12 週・12 堂</span>
+          </div>
+          <div class="hl">
+            <span class="pill ok">每堂攝影回饋</span>
+            <span class="pill ok">課堂筆記</span>
+            <span class="pill warn">加 1 次動作分析</span>
+            <span class="pill">學員 GPT｜16 週延伸版</span>
+          </div>
+          <ul class="muted">
+            <li>動作分析 1 次（60 分）＋銜接建議</li>
+            <li>多 4 週續用＋團練/進階銜接菜單</li>
+          </ul>
+          <a class="btn primary" href="#signup" style="width:100%; margin-top:10px;">選這個方案報名</a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      
+      <div class="tableWrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:140px;">場次</th>
+              <th>地點</th>
+              <th style="width:220px;">日期</th>
+              <th style="width:170px;">時段</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>燿宇教練版｜台北場</td>
+              <td>建安國小</td>
+              <td>3/9-5/18（4/6休）</td>
+              <td>週一 19:30-21:00</td>
+            </tr>
+            <tr>
+              <td>燿宇教練版｜林口場</td>
+              <td>國立體育大學游泳池</td>
+              <td>3/14-5/23（4/4休）</td>
+              <td>週六 14:00-15:30</td>
+            </tr>
+            <tr>
+              <td>體系教練版｜台北場</td>
+              <td>南港成德國中運動中心泳池</td>
+              <td>3/19-6/14（4/2、4/23休）</td>
+              <td>週四 19:00-20:30</td>
+            </tr>
+            <tr>
+              <td>體系教練版｜桃園場</td>
+              <td>元智大學</td>
+              <td>3/9-5/18（4/6休）</td>
+              <td>週一 19:00-20:30</td>
+            </tr>
+                      <tr>
+              <td>劉熹教練版｜新竹場</td>
+              <td>陽光魚清華附小泳池</td>
+              <td>4/12-7/5（4/26、6/14、6/21休）</td>
+              <td>週日 15:30-17:00</td>
+            </tr>
+</tbody>
+        </table>
+      </div>
+
+<div class="noteBox">
+        <b style="color:var(--text);">首開價說明（名額／期限）</b><br/>
+        首期新模式提供「首開價」名額，符合以下其一：<br/>
+        ① 限首期班次（2026 春季班） ② 每班限前 6 名 ③ 開賣後 10 天截止。<br/>
+        名額／期限到即回到常態價格。
+      </div>
+    </section>
+
+    <!-- SIGNUP -->
+    <section class="grid" id="signup">
+      <div class="card col8">
+        <h2 class="anchor">立即報名</h2>
+        <p class="muted">
+          你可以先填表預留名額（不代表完成付款）。我們會回覆可選班期、地點與教練方案，並提供付款連結或候補安排。
+        </p>
+
+        <!-- Replace action with your form endpoint -->
+        <form action="#" method="post" style="margin-top:12px;">
+          <div class="grid" style="margin-top:0;">
+            <div class="col6">
+              <label class="muted" for="name">姓名</label>
+              <input id="name" name="name" required
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入姓名" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="phone">手機</label>
+              <input id="phone" name="phone" required
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入手機" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="email">Email（選填）</label>
+              <input id="email" name="email" type="email"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="name@example.com" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="plan">想選的方案</label>
+              <select id="plan" name="plan"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);">
+                <option>體系教練版｜台北場</option>
+                <option>體系教練版｜桃園場</option>
+                <option>劉熹教練版</option>
+                <option>燿宇教練版</option>
+              </select>
+            </div>
+            <div class="col12">
+              <label class="muted" for="note">目前狀況/不順的地方（越簡短越好）</label>
+              <textarea id="note" name="note" rows="4"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="例：會蛙式，不會自由式；換氣會嗆水；一換氣就沉..."></textarea>
+            </div>
+          </div>
+
+          <div class="ctaRow">
+            <button class="btn primary" type="submit">送出報名資料</button>
+            <a class="btn" href="#pricing">回去看方案</a>
+          </div>
+
+          <p class="fine" style="margin-top:10px;">
+            送出即表示同意我們以此資訊聯絡你安排班期與地點。實際開課資訊以通知為準。
+          </p>
+        </form>
+      </div>
+
+      <div class="card col4">
+        <h3>你會更安心的三件事</h3>
+        <ul class="muted">
+          <li>每堂有影像回饋：你會清楚看到自己哪裡進步</li>
+          <li>課後有筆記＋作業：回家也不怕忘</li>
+          <li>有學員 GPT 小幫手：忙也能用最低練習把進度追回來</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h3>聯絡方式</h3>
+        <p class="muted" style="margin:0;">
+          LINE：<b>@leaderme</b><br/>
+        <div class="divider"></div>
+
+        <p class="muted" style="margin:0;">
+          <b>備註：</b>若你完全無基礎，特別容易緊張/對水有強烈恐懼，報名前可先聯繫，我們會建議更合適的課程與安全進度。
+        </p>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 自由式基礎班｜實體課 + 學員 GPT｜本頁內容可依據據點/班期微調（不影響核心模板）
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const btnLaunch = document.getElementById('btnLaunch');
+      const btnRegular = document.getElementById('btnRegular');
+      const launchEls = document.querySelectorAll('[data-price="launch"]');
+      const regularEls = document.querySelectorAll('[data-price="regular"]');
+
+      function setMode(mode){
+        const isLaunch = mode === 'launch';
+        btnLaunch.classList.toggle('active', isLaunch);
+        btnRegular.classList.toggle('active', !isLaunch);
+        btnLaunch.setAttribute('aria-selected', String(isLaunch));
+        btnRegular.setAttribute('aria-selected', String(!isLaunch));
+
+        launchEls.forEach(el => el.style.display = isLaunch ? '' : 'none');
+        regularEls.forEach(el => el.style.display = isLaunch ? 'none' : '');
+      }
+
+      btnLaunch.addEventListener('click', () => setMode('launch'));
+      btnRegular.addEventListener('click', () => setMode('regular'));
+    })();
+  </script>
+</body>
+</html>
+```
