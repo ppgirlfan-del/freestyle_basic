@@ -657,11 +657,8 @@
       <div class="card col8">
         <h2 class="anchor">立即報名</h2>
         <p class="muted">
-          你可以先填表預留名額（不代表完成付款）。我們會回覆可選班期、地點與教練方案，並提供付款連結或候補安排。
-        </p>
-
         <!-- Replace action with your form endpoint -->
-        <form action="#" method="post" style="margin-top:12px;">
+        <form action="https://script.google.com/macros/s/AKfycbz0LgOujv2Mfp1GGtM6bGoj45tQlol6fEb5LNHo7bqW6zkbK5sbJDBbH3oidc_NrIDpFg/exec" method="post" style="margin-top:12px;">
           <div class="grid" style="margin-top:0;">
             <div class="col6">
               <label class="muted" for="name">姓名</label>
@@ -676,6 +673,18 @@
                 placeholder="請輸入手機" />
             </div>
             <div class="col6">
+              <label class="muted" for="idno">身分證字號</label>
+              <input id="idno" name="idno"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入身分證字號" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="birthday">生日</label>
+              <input id="birthday" name="birthday" type="date"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="YYYY-MM-DD" />
+            </div>
+            <div class="col6">
               <label class="muted" for="email">Email（選填）</label>
               <input id="email" name="email" type="email"
                 style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
@@ -685,17 +694,79 @@
               <label class="muted" for="plan">想選的方案</label>
               <select id="plan" name="plan"
                 style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);">
+                <option>燿宇教練版｜台北場</option>
+                <option>燿宇教練版｜林口場</option>
+                <option>劉熹教練版｜新竹場</option>
                 <option>體系教練版｜台北場</option>
                 <option>體系教練版｜桃園場</option>
-                <option>劉熹教練版</option>
-                <option>燿宇教練版</option>
               </select>
             </div>
             <div class="col12">
-              <label class="muted" for="note">目前狀況/不順的地方（越簡短越好）</label>
+              <label class="muted" for="address">通訊地址</label>
+              <input id="address" name="address"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入通訊地址" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="emergency_name">緊急聯絡人姓名</label>
+              <input id="emergency_name" name="emergency_name"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入緊急聯絡人姓名" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="emergency_phone">緊急聯絡人電話</label>
+              <input id="emergency_phone" name="emergency_phone"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入緊急聯絡人電話" />
+            </div>
+
+            <div class="col6">
+              <label class="muted" for="first_time_leader">是否第一次報名 LEADER 課程？</label>
+              <select id="first_time_leader" name="first_time_leader"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);">
+                <option value="" selected style="color:#111;">請選擇</option>
+                <option style="color:#111;">是</option>
+                <option style="color:#111;">否</option>
+              </select>
+            </div>
+            <div class="col6">
+              <label class="muted" for="swim_learning">過去是否正式學習過游泳</label>
+              <select id="swim_learning" name="swim_learning"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);">
+                <option value="" selected style="color:#111;">請選擇</option>
+                <option style="color:#111;">是</option>
+                <option style="color:#111;">否</option>
+              </select>
+            </div>
+
+            <div class="col6">
+              <label class="muted" for="bank_last5">預計匯款後五碼</label>
+              <input id="bank_last5" name="bank_last5" inputmode="numeric" maxlength="5"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="例：12345" />
+            </div>
+            <div class="col6">
+              <label class="muted" for="invoice_type">發票：兩聯或三聯</label>
+              <select id="invoice_type" name="invoice_type"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);">
+                <option value="" selected style="color:#111;">請選擇</option>
+                <option style="color:#111;">二聯</option>
+                <option style="color:#111;">三聯</option>
+              </select>
+            </div>
+            <div class="col6">
+              <label class="muted" for="tax_id">統編（三聯才需填）</label>
+              <input id="tax_id" name="tax_id" inputmode="numeric"
+                style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
+                placeholder="請輸入公司統編" />
+            </div>
+            <div class="col6"></div>
+
+            <div class="col12">
+              <label class="muted" for="note">目前自由式最大卡關（越簡短越好）</label>
               <textarea id="note" name="note" rows="4"
                 style="width:100%; margin-top:6px; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
-                placeholder="例：會蛙式，不會自由式；換氣會嗆水；一換氣就沉..."></textarea>
+                placeholder="例：換氣會嗆水；一換氣就沉；手腳不同步；抓水沒感覺…"></textarea>
             </div>
           </div>
 
@@ -704,10 +775,13 @@
             <a class="btn" href="#pricing">回去看方案</a>
           </div>
 
+          <p class="fine" id="signupSubmitMsg" style="margin-top:10px; display:none;"></p>
+
           <p class="fine" style="margin-top:10px;">
             送出即表示同意我們以此資訊聯絡你安排班期與地點。實際開課資訊以通知為準。
           </p>
         </form>
+        <iframe name="signup_hidden_iframe" style="display:none;"></iframe>
       </div>
 
       <div class="card col4">
@@ -767,6 +841,48 @@
     });
 
   </script>
+<script>
+// --- Signup form: show success message + clear fields (no API keys, no UI changes)
+(function(){
+  function onReady(fn){
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+    else fn();
+  }
+
+  onReady(function(){
+    var form = document.querySelector('#signup form');
+    if(!form) return;
+
+    var msg = document.getElementById('signupSubmitMsg');
+    var iframe = document.querySelector('iframe[name="signup_hidden_iframe"]');
+
+    // Keep original submission (POST to Apps Script), but avoid leaving the page.
+    if(iframe) form.setAttribute('target', 'signup_hidden_iframe');
+
+    var submitted = false;
+
+    form.addEventListener('submit', function(){
+      submitted = true;
+      if(msg){
+        msg.style.display = 'block';
+        msg.textContent = '送出中…';
+      }
+    });
+
+    if(iframe){
+      iframe.addEventListener('load', function(){
+        if(!submitted) return; // ignore initial about:blank load
+        submitted = false;
+        if(msg){
+          msg.style.display = 'block';
+          msg.textContent = '✅ 已送出，我們會盡快與你聯絡！';
+        }
+        // Clear fields after submission
+        form.reset();
+      });
+    }
+  });
+})();
+</script>
 </body>
 </html>
-```
