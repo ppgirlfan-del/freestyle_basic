@@ -403,33 +403,6 @@
       </div>
     </section>
 
-    <!-- TRIAL QA (UI DEMO ONLY) -->
-    <section class="card" id="trialQa" style="margin-top:16px;">
-      <h2 class="anchor">試用問答（公開版 LEADER HQ）</h2>
-      <p class="muted" style="margin-top:6px;">每日提供限量試問次數。用完會在這裡提醒你，明天再來擲筊 😄</p>
-      <p class="fine" style="margin-top:6px;">試用問答以公開版 LEADER HQ 內容為準，不取代教練現場判斷。</p>
-
-      <!-- Status message (hidden by default; UI container only) -->
-      <div id="trialQaQuota" class="noteBox" style="display:none; margin-top:12px;">今日試問額度已滿，明天再來擲筊喔 🙏</div>
-
-      <div class="divider"></div>
-
-      <form id="trialQaForm" action="#" method="post"
-        onsubmit="(function(e){e.preventDefault();var s=document.getElementById('trialQaStatus');if(s){s.style.display='';s.textContent='查詢中';}})(event);">
-        <label class="muted" for="trialQaInput">輸入你的問題</label>
-        <div class="ctaRow" style="margin-top:6px;">
-          <input id="trialQaInput" name="trialQaInput"
-            style="flex:1; min-width:240px; margin-top:0; padding:12px; border-radius:12px; border:1px solid var(--line); background: rgba(255,255,255,.03); color:var(--text);"
-            placeholder="例：我換氣一轉頭就沉，先修什麼？" />
-          <button class="btn primary" type="submit">送出</button>
-        </div>
-
-        <!-- Fake interaction text (hidden by default) -->
-        <p id="trialQaStatus" class="muted" style="display:none; margin-top:10px;">查詢中</p>
-      </form>
-    </section>
-
-
     <!-- PRICING -->
     <section class="card" id="pricing">
       <div class="priceHead">
@@ -657,6 +630,9 @@
       <div class="card col8">
         <h2 class="anchor">立即報名</h2>
         <p class="muted">
+          你可以先填表預留名額（不代表完成付款）。我們會回覆可選班期、地點與教練方案，並提供付款連結或候補安排。
+        </p>
+
         <!-- Replace action with your form endpoint -->
         <form action="https://script.google.com/macros/s/AKfycbz0LgOujv2Mfp1GGtM6bGoj45tQlol6fEb5LNHo7bqW6zkbK5sbJDBbH3oidc_NrIDpFg/exec" method="post" style="margin-top:12px;">
           <div class="grid" style="margin-top:0;">
